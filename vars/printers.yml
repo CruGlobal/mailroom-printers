@@ -1,0 +1,42 @@
+---
+print_servers:
+  - hartl4077
+  - plprta01
+
+printers:
+  7125VP:
+    name: 7125VP
+    address: 10.10.182.20
+    description: "North Building Mailroom"
+  ir110:
+    name: iR110
+    address: 10.10.182.19
+    description: "North Building Mailroom"
+
+give_forms:
+  - 1
+  - 2 
+  - 3
+  - 4
+  - 5
+
+receipt_forms:
+  - AIA
+  - CCC
+  - CHEM
+  - CHRL
+  - FMLY
+  - GAIN
+  - HLC
+  - IMP
+  - JESU
+  - JSHG
+  - USDV
+  - CAMP
+
+reminder_forms:
+  - RJF
+  - RST
+
+pdf_forms:
+  - PDF

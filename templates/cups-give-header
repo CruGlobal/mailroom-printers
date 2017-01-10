@@ -1,0 +1,31 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+// List the fonts that are supported, in this case all standard fonts...
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Canon"
+ModelName "Canon imageRunner 110/150"
+Version 1.0
+Attribute "JCLBegin" "" "%!PS-Adobe-3.0
+%KDKBody:	(Give) on
+%KDKPrintMethod:	print
+%KDKOutputMedia:	stacker
+%%Requirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRequirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRotation:	0
+%KDKChapersAreSets:	off
+%KDKError:	onerror (Receipt)
+%KDKActOn:
+%%For:	(Giving Report)
+%%OperatorMessage:	(Hold)
+%%Emulation:	postscript
+%%DocumentPrinterRequired:	() (DS9110)
+%%DocumentMedia:	(Giving) 612 792 75 (white) (giving)
+%%+			(LetterHead) 612 792 75 (white) (letterhead)
+%%BoundingBox:          (atend)
+%KDKMedia:		(Giving)
+%+			(LetterHead)
+%KDKSlip:		(LetterHead) simplex

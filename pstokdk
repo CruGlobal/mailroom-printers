@@ -1,0 +1,6 @@
+#!/bin/bash
+
+jobname=
+if [ $# -eq 6 ]; then jobname=$5; fi
+
+awk -v jobname=${jobname} '{print};NR==1 && /%!PS-Adobe-3.0/ { print "%%Title:\t(" jobname ")" }'

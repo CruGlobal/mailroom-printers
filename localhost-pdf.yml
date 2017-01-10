@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  user: root
+  vars_files:
+    - vars/printers.yml
+  
+  tasks:
+    - name: copy CUPS filter to server
+      copy:
+        src: pstokdk
+        dest: /usr/local/bin/pstokdk
+        owner: root
+        group: wheel
+        mode: 755
+        force: no
+
+- name: PDF printers
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - vars/printers.yml
+
+  tasks:
+    - name: set up fact
+      set_fact: merged_printers="{{printers}}"
+
+    - debug: var=merged_printers
+
+    - name: add new parameters
+      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'description':item.value.description+ ' '+item.value.name, 'queue':item.value.name+ '-PDF', 'uri':'ldp://'+item.value.address+ '/any'}}, recursive=True)}}"
+      with_dict: "{{merged_printers}}"
+
+    - name: add lpadmin command
+      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'command':'lpadmin -E -p '+item.value.queue+ ' -v '+item.value.uri+ ' -P ./templates/localhost-pdf.ppd -D '+item.value.queue+ ' -L \"'+item.value.description+ '\" -o printer-is-shared=false -o job-sheets-default=none,none -o job-quota-period=0 -o job-page-limit=0 -o job-kill-limit=0 -o printer-op-policy=default -o job-error-policy=retry-job -o printer-error-policy=retry-job enddef' }}, recursive=True)}}"
+      with_dict: "{{merged_printers}}"
+
+#    - name: format pdf report printer queue names
+#      format_lists:
+#        format_spec: '%s-%s'
+#        lists:
+#          - "{{ printer_names }}"
+#          - "{{ pdf_forms }}"
+#      register: pdf_queues
+
+    - debug: var=merged_printers
