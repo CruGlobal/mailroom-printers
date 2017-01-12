@@ -4,14 +4,14 @@
   vars_files:
     - vars/printers.yml
   
-  tasks:
-    - name: copy CUPS filter to server
-      copy:
-        src: pstokdk
-        dest: /usr/local/bin/pstokdk
-        owner: root
-        group: wheel
-        mode: 755
+#  tasks:
+#    - name: copy CUPS filter to server
+#      copy:
+#        src: pstokdk
+#        dest: /usr/local/bin/pstokdk
+#        owner: root
+#        group: wheel
+#        mode: 755
 
 - name: Receipt printers
   hosts: localhost

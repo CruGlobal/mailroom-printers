@@ -5,14 +5,8 @@
     - vars/printers.yml
   
   tasks:
-    - name: copy CUPS filter to server
-      copy:
-        src: pstokdk
-        dest: /usr/local/bin/pstokdk
-        owner: root
-        group: wheel
-        mode: 755
-        force: no
+    - name: build CUPS filter and copy to filter directory
+      shell: make
 
 - name: PDF printers
   hosts: localhost
@@ -22,25 +16,58 @@
     - vars/printers.yml
 
   tasks:
+    - name: set up pwd
+      shell: pwd
+      register: playbook_path
+
+    - debug: var=playbook_path.stdout
+
+    - stat: path={{playbook_path.stdout}}/PPD/cups-SimplePDF.ppd
+      register: simplePDF_status
+
+    - name: create PPD from DRV
+      shell: command ppdc -D PPD "{{item}}"
+      when: simplePDF_status.stat.exists==false
+      with_items:
+        - templates/localhost-pdf.drv
+
     - name: set up fact
       set_fact: merged_printers="{{printers}}"
 
     - debug: var=merged_printers
 
     - name: add new parameters
-      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'description':item.value.description+ ' '+item.value.name, 'queue':item.value.name+ '-PDF', 'uri':'ldp://'+item.value.address+ '/any'}}, recursive=True)}}"
+      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'description':item.value.description+ ' '+item.value.name, 'queue':item.value.name+ '-PDF', 'uri':'lpd://'+item.value.address+ '/any' }}, recursive=True)}}"
+      with_dict: "{{merged_printers}}"
+
+    - name: add more parameters
+      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'ppd':playbook_path.stdout+ '/PPD/cups-SimplePDF.ppd' }}, recursive=True)}}"
       with_dict: "{{merged_printers}}"
 
     - name: add lpadmin command
-      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'command':'lpadmin -E -p '+item.value.queue+ ' -v '+item.value.uri+ ' -P ./templates/localhost-pdf.ppd -D '+item.value.queue+ ' -L \"'+item.value.description+ '\" -o printer-is-shared=false -o job-sheets-default=none,none -o job-quota-period=0 -o job-page-limit=0 -o job-kill-limit=0 -o printer-op-policy=default -o job-error-policy=retry-job -o printer-error-policy=retry-job enddef' }}, recursive=True)}}"
+      set_fact: merged_printers="{{merged_printers | combine({item.key:{ 'command':'lpadmin -E -p '+item.value.queue+ ' -v \"'+item.value.uri+ '\" -P '+item.value.ppd+ ' -D '+item.value.queue+ ' -L \"'+item.value.description+ '\" -o printer-is-shared=false -o job-sheets-default=none,none -o job-quota-period=0 -o job-page-limit=0 -o job-kill-limit=0 -o printer-op-policy=default -o job-error-policy=retry-job -o printer-error-policy=retry-job' }}, recursive=True)}}"
       with_dict: "{{merged_printers}}"
 
-#    - name: format pdf report printer queue names
-#      format_lists:
-#        format_spec: '%s-%s'
-#        lists:
-#          - "{{ printer_names }}"
-#          - "{{ pdf_forms }}"
-#      register: pdf_queues
+    - name: add the printer
+      become: true
+      become_user: root
+      become_method: sudo
+      command: "{{item.value.command}}"
+      with_dict: "{{merged_printers}}"
 
-    - debug: var=merged_printers
+    - name: run cupsaccept
+      become: true
+      become_user: root
+      become_method: sudo
+      command: cupsaccept "{{item.value.queue}}"
+      with_dict: "{{merged_printers}}"
+
+    - name: run cupsenable
+      become: true
+      become_user: root
+      become_method: sudo
+      command: cupsenable "{{item.value.queue}}"
+      with_dict: "{{merged_printers}}"
+
+    - name: STOP!!!
+      fail: msg="Stop!!"
