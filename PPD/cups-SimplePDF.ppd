@@ -1,0 +1,116 @@
+*PPD-Adobe: "4.3"
+*%%%% PPD file for Canon imageRunner 110/150 with CUPS.
+*%%%% Created by the CUPS PPD Compiler CUPS v2.2.0.
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "cups-SimplePDF.ppd"
+*Product: "(Canon imageRunner 110/150)"
+*Manufacturer: "Canon"
+*ModelName: "Canon imageRunner 110/150"
+*ShortNickName: "Canon imageRunner 110/150"
+*NickName: "Canon imageRunner 110/150, 1.0"
+*PSVersion: "(3010.000) 0"
+*LanguageLevel: "3"
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*FileSystem: False
+*Throughput: "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*% Driver-defined attributes...
+*JCLBegin: "%!PS-Adobe-3.0
+%KDKBody:	(Receipt) on
+%KDKPrintMethod:	print
+%KDKOutputMedia:	stacker
+%%Requirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRequirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRotation:	0
+%KDKChapersAreSets:	off
+%KDKError:	onerror (Receipt)
+%KDKActOn:
+%%For:	(Receipt)
+%%OperatorMessage:	(Hold)
+%%Emulation:	postscript
+%%DocumentPrinterRequired:	() (DS9110)
+%%DocumentMedia:	(Receipt) 612 792 75 (white) (RECEIPTFORM)
+%KDKMedia:		(Receipt) simplex
+%KDKSlip:		(Receipt) simplex
+%%Creator:		CUPS Version 1.3
+%%BoundingBox:		(atend)
+%%DocumentNeededResources:	(atend)
+%%DocumentSuppliedResource:	(atend)
+%%DocumentData:			Clean7Bit
+%%TargetDevice:			*imageRUNNER 110) (2015.105) 9
+%%LanguageLevel:		3
+%%EndComments
+"
+*End
+*JCLToPSInterpreter: ""
+*JCLEnd: ""
+*cupsVersion: 2.2
+*cupsModelNumber: 0
+*cupsManualCopies: False
+*cupsFilter: "application/vnd.cups-postscript 100 root/pstokdk"
+*cupsLanguages: "en"
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize A4/A4: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion A4/A4: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: Letter
+*ImageableArea Letter/US Letter: "0 0 612 792"
+*ImageableArea A4/A4: "0 0 595 842"
+*DefaultPaperDimension: Letter
+*PaperDimension Letter/US Letter: "612 792"
+*PaperDimension A4/A4: "595 842"
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 600dpi
+*Resolution 600dpi/600 DPI: "<</HWResolution[600 600]/cupsBitsPerColor 8/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+*CloseUI: *Resolution
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(1.05)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(1.05)" Standard ROM
+*Font AvantGarde-Demi: Standard "(1.05)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(1.05)" Standard ROM
+*Font Bookman-Demi: Standard "(1.05)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(1.05)" Standard ROM
+*Font Bookman-Light: Standard "(1.05)" Standard ROM
+*Font Bookman-LightItalic: Standard "(1.05)" Standard ROM
+*Font Courier: Standard "(1.05)" Standard ROM
+*Font Courier-Bold: Standard "(1.05)" Standard ROM
+*Font Courier-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Courier-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica: Standard "(1.05)" Standard ROM
+*Font Helvetica-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Oblique: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(1.05)" Standard ROM
+*Font Palatino-Bold: Standard "(1.05)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Palatino-Italic: Standard "(1.05)" Standard ROM
+*Font Palatino-Roman: Standard "(1.05)" Standard ROM
+*Font Symbol: Special "(001.005)" Special ROM
+*Font Times-Bold: Standard "(1.05)" Standard ROM
+*Font Times-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Times-Italic: Standard "(1.05)" Standard ROM
+*Font Times-Roman: Standard "(1.05)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(1.05)" Standard ROM
+*Font ZapfDingbats: Special "(001.005)" Special ROM
+*% End of cups-SimplePDF.ppd, 04733 bytes.

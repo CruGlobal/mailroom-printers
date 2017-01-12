@@ -1,0 +1,53 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+// List the fonts that are supported, in this case all standard fonts...
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Canon"
+ModelName "Canon imageRunner 110/150"
+Version 1.0
+Attribute "JCLBegin" "" "%!PS-Adobe-3.0
+%KDKBody:	(Receipt) on
+%KDKPrintMethod:	print
+%KDKOutputMedia:	stacker
+%%Requirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRequirements:	numcopies(1) staple(none) simplex collate jog(none) trim(off)
+%KDKRotation:	0
+%KDKChapersAreSets:	off
+%KDKError:	onerror (Receipt)
+%KDKActOn:
+%%For:	(Receipt)
+%%OperatorMessage:	(Hold)
+%%Emulation:	postscript
+%%DocumentPrinterRequired:	() (DS9110)
+%%DocumentMedia:	(Receipt) 612 792 75 (white) (RECEIPTFORM)
+%KDKMedia:		(Receipt) simplex
+%KDKSlip:		(Receipt) simplex
+%%Creator:		CUPS Version 1.3
+%%BoundingBox:		(atend)
+%%DocumentNeededResources:	(atend)
+%%DocumentSuppliedResource:	(atend)
+%%DocumentData:			Clean7Bit
+%%TargetDevice:			*imageRUNNER 110) (2015.105) 9
+%%LanguageLevel:		3
+%%EndComments
+"
+Attribute "JCLToPSInterpreter" "" ""
+Attribute "JCLEnd" "" ""
+
+// Each filter provided by the driver
+Filter application/vnd.cups-postscript 100 root/pstokodak
+
+//Supported page sizes
+*MediaSize Letter
+MediaSize A4
+
+// Supported resolutions
+*Resolution k 8 0 0 0 "600dpi/600 DPI"
+
+//Specify the name of the PPD file we want to generate...
+PCFileName "cups-SimplePDF.ppd"
+
