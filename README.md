@@ -4,9 +4,7 @@ Ansible project to create cru mailroom printers
 Use git clone to download the project.
 cd to the directory and you're on your way.
 
-This project is currently only valid for OSX or MacOS but could be expanded.
-
-In order to compile the CUPS filter, you'll need XCode available from the APP Store.
+This project is currently only valid for OSX or MacOS but could be expanded. See the section below to setup on OSX.
 
 To define printer queues on your local machine for both the 7125VP printer and the iR110 printer (Actually the HD125 printer) to print standard PDFS, run "ansible-playbook -i hosts -v localhost-pdf.yml". This will create 2 printers on the local machine: 7125VP-PDF and iR110-PDF which will print a PDF on one of the mailroom printers with a command similar to "lp -d 7125VP-PDF my.pdf".
 # setup on OSX
@@ -34,11 +32,3 @@ To define printer queues on your local machine for both the 7125VP printer and t
 
 ## Install ansible via PIP by running:  
   * bash install-ansible.sh
-
-## Raise open file descriptors value for Ansible >= 2.x  
-  * launchctl limit maxfiles  
-  * sudo launchctl limit maxfiles 262144 524288
-
-## To persist, run the following:  
-  * sudo cp -p limit.maxfiles.plist /Library/LaunchDaemons/limit.maxfiles.plist  
-  * sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist  
