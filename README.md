@@ -41,39 +41,16 @@ Copy the default Ansible configuration file to the system-wide Ansible directory
 Verification (ignore Host file not found messages)  
   * ansible localhost -m ping  
   * ansible localhost -m setup -a 'filter=ansible_distribution'  
-  ansible localhost -a 'uname -a'  
-Raise open file descriptors value for Ansible >= 2.x  
-  * launchctl limit maxfiles  
-  * sudo launchctl limit maxfiles 262144 524288  
-To persist, run the following:  
-  * cat <<EOF >>limit.maxfiles.plist  
-  * <?xml version="1.0" encoding="UTF-8"?>  
-  * <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
-  * <plist version="1.0">  
-  *   <dict>  
-  *     <key>Label</key>  
-  *     <string>limit.maxfiles</string>  
-  *     <key>ProgramArguments</key>  
-  *     <array>  
-  *       <string>launchctl</string>  
-  *       <string>limit</string>  
-  *       <string>maxfiles</string>  
-  *       <string>262144</string>  
-  *       <string>524288</string>  
-  *     </array>  
-  *     <key>RunAtLoad</key>  
-  *     <true/>  
-  *     <key>ServiceIPC</key>  
-  *     <false/>  
-  *   </dict>  
-  * </plist>  
-  * EOF  
-  * sudo mv limit.maxfiles.plist /Library/LaunchDaemons/limit.maxfiles.plist  
-  * sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist  
+  * ansible localhost -a 'uname -a'  
 Get the ansible playbook by running:  
   * cd ~  
   * mkdir CruGlobal  
   * cd CruGlobal  
   * git clone https://github.com/CruGlobal/mailroom-printers.git  
   * cd mailroom-printers  
-
+Raise open file descriptors value for Ansible >= 2.x  
+  * launchctl limit maxfiles  
+  * sudo launchctl limit maxfiles 262144 524288  
+To persist, run the following:  
+  * sudo cp -p limit.maxfiles.plist /Library/LaunchDaemons/limit.maxfiles.plist  
+  * sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist  
