@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 if [ ! -d ~/.ssh ]; then  
   sudo mkdir ~/.ssh
