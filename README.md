@@ -30,33 +30,10 @@ To define printer queues on your local machine for both the 7125VP printer and t
   * cd mailroom-printers
 
 ## Install PIP by running the following:  
-  * easy_install --user pip
-
-## Add python to the path by running the following:  
-  * printf 'if [ -f ~/.bashrc ]; then\n  source ~/.bashrc\nfi\n' >> $HOME/.profile  
-  * printf 'export PATH=$PATH:$HOME/Library/Python/2.7/bin\n' >> $HOME/.bashrc  
-  * source $HOME/.profile
-
-## Verify pip is running by running the following:  
-  * pip --version
+  * bash install-pip.sh
 
 ## Install ansible via PIP by running:  
-  * pip install --user --upgrade ansible
-
-## Verify ansible by running the following:  
-  * type -a ansible  
-  * ansible --version
-
-## Create the system-wide Ansible directory.  
-  * sudo mkdir /etc/ansible
-
-## Copy the default Ansible configuration file to the system-wide Ansible directory.  
-  * sudo curl -L https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg -o /etc/ansible/ansible.cfg
-
-## Verification (ignore Host file not found messages)  
-  * ansible localhost -m ping  
-  * ansible localhost -m setup -a 'filter=ansible_distribution'  
-  * ansible localhost -a 'uname -a'
+  * bash install-ansible.sh
 
 ## Raise open file descriptors value for Ansible >= 2.x  
   * launchctl limit maxfiles  
