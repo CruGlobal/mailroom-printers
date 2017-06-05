@@ -13,5 +13,5 @@ source $HOME/.profile
 echo "Verifying pip:"
 pip --version
 
-# please run the following command or restart your shell
-source $HOME/.profile
+echo "please run the following command or restart your shell:"
+echo "source $HOME/.profile"
