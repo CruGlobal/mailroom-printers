@@ -22,6 +22,13 @@ To define printer queues on your local machine for both the 7125VP printer and t
   * Hit enter to view the license agreement and continue hitting space until the black bar at the bottom disappears.  
   * Type agree and hit enter.
 
+## Get the ansible playbook by running:  
+  * cd ~  
+  * mkdir CruGlobal  
+  * cd CruGlobal  
+  * git clone https://github.com/CruGlobal/mailroom-printers.git  
+  * cd mailroom-printers
+
 ## Install PIP by running the following:  
   * easy_install --user pip
 
@@ -50,13 +57,6 @@ To define printer queues on your local machine for both the 7125VP printer and t
   * ansible localhost -m ping  
   * ansible localhost -m setup -a 'filter=ansible_distribution'  
   * ansible localhost -a 'uname -a'
-
-## Get the ansible playbook by running:  
-  * cd ~  
-  * mkdir CruGlobal  
-  * cd CruGlobal  
-  * git clone https://github.com/CruGlobal/mailroom-printers.git  
-  * cd mailroom-printers
 
 ## Raise open file descriptors value for Ansible >= 2.x  
   * launchctl limit maxfiles  
