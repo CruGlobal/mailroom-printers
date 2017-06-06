@@ -35,7 +35,7 @@ OBJS := $(MODULE)
 all: $(OBJS)
 
 install: | $(ROOT_DIR)
-	sudo cp -p $(MODULE) $(ROOT_DIR)
+	sudo cp $(MODULE) $(ROOT_DIR)
 
 clean:
 	sudo rm $(MODULE)
