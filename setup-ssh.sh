@@ -19,5 +19,5 @@ sudo chmod 600 ~root/.ssh/authorized_keys
 
 U=${USER}
 sudo sh -c "cat ~${U}/.ssh/id_rsa.pub >>~root/.ssh/authorized_keys"
-cat ~/.ssh/id_rsa.pub >>~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub >>~/.ssh/authorized_keys
 cupsctl WebInterface=yes
