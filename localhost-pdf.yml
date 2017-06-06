@@ -70,6 +70,3 @@
       become_method: sudo
       command: cupsenable "{{item.value.queue}}"
       with_dict: "{{merged_printers}}"
-
-    - name: STOP!!!
-      fail: msg="Stop!!"
