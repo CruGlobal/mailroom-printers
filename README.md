@@ -17,18 +17,18 @@ To define printer queues on your local machine for both the 7125VP printer and t
   * When the popup shows "The software was installed.", click <strong>Done</strong>  
 
 ## Get the ansible playbook by running:  
-  * cd ~  
-  * mkdir CruGlobal  
-  * cd CruGlobal  
-  * git clone https://github.com/CruGlobal/mailroom-printers.git  
-  * cd mailroom-printers
+  * <strong>cd ~</strong>  
+  * <strong>mkdir CruGlobal</strong>  
+  * <strong>cd CruGlobal</strong>  
+  * <strong>git clone https://github.com/CruGlobal/mailroom-printers.git</strong>  
+  * <strong>cd mailroom-printers</strong>  
 
 ## Install PIP by running the following:  
-  * bash install-pip.sh
-  * source $HOME/.profile  
+  * <strong>bash install-pip.sh</strong>  
+  * <strong>source $HOME/.profile</strong>  
 
 ## Install ansible via PIP by running:  
-  * bash install-ansible.sh
+  * <strong>bash install-ansible.sh</strong>  
 
 ## setup ssh to root by running:  
-  * bash setup-ssh.sh
+  * <strong>bash setup-ssh.sh</strong>  
