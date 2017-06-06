@@ -52,7 +52,7 @@
 *cupsVersion: 2.2
 *cupsModelNumber: 0
 *cupsManualCopies: False
-*cupsFilter: "application/vnd.cups-postscript 100 root/pstokdk"
+*cupsFilter: "application/vnd.cups-postscript 100 root/pstokodak"
 *cupsLanguages: "en"
 *OpenUI *PageSize/Media Size: PickOne
 *OrderDependency: 10 AnySetup *PageSize
