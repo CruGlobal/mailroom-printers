@@ -25,6 +25,7 @@ To define printer queues on your local machine for both the 7125VP printer and t
 
 ## Install PIP by running the following:  
   * bash install-pip.sh
+  * source $HOME/.profile  
 
 ## Install ansible via PIP by running:  
   * bash install-ansible.sh
