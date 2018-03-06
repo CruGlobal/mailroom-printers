@@ -13,12 +13,14 @@ def main():
 	)
 	format_spec = module.params.get('format_spec')
 	lists = eval(module.params.get('lists'))
+	printers = lists[0]
+	forms = lists[1]
 	json_lists = json.dumps(lists)
 	json_format_spec = json.dumps(format_spec)
 	queues = []
-	for lista in lists[0]:
-		for listb in lists[1]:
-			queues.append(format_spec % (lista, listb))
+	for printer in printers:
+		for form in forms:
+			queues.append(format_spec % (printer, form))
 	json_queues = json.dumps(queues)
 	module.exit_json(changed=True, queues=queues)
 
